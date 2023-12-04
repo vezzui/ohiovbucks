@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OHIO VBUCKS</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #generateButton {
+            display: block;
+            margin: 50px auto;
+            padding: 20px;
+            font-size: 18px;
+            background-color: red;
+            color: white;
+            cursor: pointer;
+        }
+
+        #peelyImage {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="generateButton" onclick="generateVindertechBucks()">Generate Vindertech Bucks</button>
+
+    <div id="peelyImage">
+        <img src="peely_image.jpg" alt="Peely" style="width: 100%; height: 100%;">
+    </div>
+
+    <script>
+        function generateVindertechBucks() {
+            // Display the Peely image
+            document.getElementById("peelyImage").style.display = "block";
+        }
+    </script>
+
+</body>
+</html>
