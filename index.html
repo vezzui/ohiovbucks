@@ -10,9 +10,22 @@
             overflow: hidden;
         }
 
+        #header {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+
+        #header img {
+            width: 50px; /* Adjust the width as needed */
+            height: 50px; /* Adjust the height as needed */
+            margin-right: 10px;
+        }
+
         #generateButton {
             display: block;
-            margin: 50px auto;
+            margin: 20px auto;
             padding: 20px;
             font-size: 18px;
             background-color: red;
@@ -33,6 +46,11 @@
 </head>
 <body>
 
+    <div id="header">
+        <img src="vbucks.png" alt="V-Bucks Logo">
+        <h1 style="display:inline;">OHIO VBUCKS</h1>
+    </div>
+
     <button id="generateButton" onclick="generateVindertechBucks()">Generate Vindertech Bucks</button>
 
     <div id="peelyImage">
@@ -43,6 +61,8 @@
         function generateVindertechBucks() {
             // Display the Peely image
             document.getElementById("peelyImage").style.display = "block";
+            // Disable scrolling
+            document.body.style.overflow = 'hidden';
         }
     </script>
 
