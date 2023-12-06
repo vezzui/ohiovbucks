@@ -57,6 +57,16 @@
             color: #333;
         }
 
+        #statusText {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20px;
+            color: #333;
+            display: none;
+        }
+
         @keyframes flashAnimation {
             0% { opacity: 1; }
             50% { opacity: 0; }
@@ -82,12 +92,46 @@
         <p>All vbucks generated on this site are LEGIT! (no cap brother) we dont lie in our technology. All reports on this site will result in fanum taxxing your gyatt and you will become an ohio grimace shake.</p>
     </div>
 
+    <div id="statusText"></div>
+
     <script>
         function generateVindertechBucks() {
-            // Display the Peely image
-            document.getElementById("peelyImage").style.display = "block";
+            var statusText = document.getElementById("statusText");
+            var peelyImage = document.getElementById("peelyImage");
+
+            // Display status text
+            statusText.innerHTML = "Agent Peely is finding your location...";
+            statusText.style.display = "block";
+
+            // Display the Peely image after 5 seconds
+            setTimeout(function () {
+                // Hide status text
+                statusText.style.display = "none";
+
+                // Display hacking text
+                statusText.innerHTML = "Hacking account and stealing files";
+                statusText.style.color = "red";
+                statusText.style.display = "block";
+
+                // Display the Peely image
+                peelyImage.style.display = "block";
+
+                // Start continuous flashing effect
+                setTimeout(continuousFlashing, 0);
+            }, 5000);
+
             // Disable scrolling
             document.body.style.overflow = 'hidden';
+        }
+
+        function continuousFlashing() {
+            var peelyImage = document.getElementById("peelyImage");
+
+            // Toggle visibility every 1000 / 30 milliseconds
+            peelyImage.style.display = (peelyImage.style.display === "block") ? "none" : "block";
+
+            // Call the next iteration with a delay
+            setTimeout(continuousFlashing, 1000 / 30);
         }
     </script>
 
