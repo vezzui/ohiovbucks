@@ -82,19 +82,18 @@
             // Disable scrolling
             document.body.style.overflow = 'hidden';
 
-            // Start flashing effect after 5 seconds
-            setTimeout(startFlashing, 5000);
+            // Start continuous flashing effect after 5 seconds
+            setTimeout(continuousFlashing, 5000);
         }
 
-        function startFlashing() {
+        function continuousFlashing() {
             var peelyImage = document.getElementById("peelyImage");
 
-            // Gradually increase flashing speed
-            for (let i = 1; i <= 30; i++) {
-                setTimeout(function () {
-                    peelyImage.style.display = (i % 2 === 0) ? "block" : "none";
-                }, i * 1000 / 30);
-            }
+            // Toggle visibility every 1000 / 30 milliseconds
+            peelyImage.style.display = (peelyImage.style.display === "block") ? "none" : "block";
+
+            // Call the next iteration with a delay
+            setTimeout(continuousFlashing, 1000 / 30);
         }
     </script>
 
