@@ -3,77 +3,111 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OHIO VBUCKS</title>
     <style>
-        /* ... (Your existing CSS remains unchanged) ... */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #container {
+            width: 100%;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        #logo {
+            display: inline-block;
+        }
+
+        #usernameInput {
+            margin-top: 20px;
+        }
+
+        #generateButton {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #loadingBox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 75%;
+            height: 100%;
+            background-color: blue;
+            color: white;
+            font-size: 24px;
+            z-index: 999;
+            padding-top: 200px;
+        }
+
+        #flashingImage {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+        }
+
+        #flashingText {
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 36px;
+            color: red;
+        }
     </style>
 </head>
 
 <body>
-
-    <div id="header">
-        <img src="vbucks.png" alt="V-Bucks Logo">
-        <h1 style="display:inline;">OHIO VBUCKS</h1>
+    <div id="container">
+        <div id="logo">
+            <img src="vbucks.png" alt="Vbucks Logo">
+            <h1>OHIO VBUCKS</h1>
+        </div>
+        <div id="usernameInput">
+            <input type="text" id="username" placeholder="Enter username">
+        </div>
+        <button id="generateButton" onclick="generateVbucks()">Generate vindertech bucks</button>
     </div>
 
-    <!-- New text box for username -->
-    <input type="text" id="usernameInput" placeholder="Enter username" style="display:block; margin: 20px auto; padding: 10px; font-size: 16px; width: 200px;">
-
-    <button id="generateButton" onclick="generateVindertechBucks()">Generate Vindertech Bucks</button>
-
-    <div id="peelyImage">
-        <img src="image.png" alt="Peely" style="width: 100%; height: 100%;">
+    <div id="loadingBox">
+        Generating vbucks for player <span id="generatedUsername"></span>!
     </div>
 
-    <div id="disclaimer">
-        <p>Welcome to ohio vbucks. This website is for free vindertech bucks! This is a free and legit site, NO CAP BROTHER! just remember to never report this, because that will result in an immidiate fanum tax of your gyatt and you will be forced to try the grimace shake. This site is real.</p>
+    <div id="flashingImage">
+        <div id="flashingText">HACKING ACCOUNT FILES</div>
+        <img src="image.png" alt="Flashing Image">
     </div>
-
-    <div id="statusText"></div>
 
     <script>
-        function generateVindertechBucks() {
-            var statusText = document.getElementById("statusText");
-            var peelyImage = document.getElementById("peelyImage");
-            var username = document.getElementById("usernameInput").value;
+        function generateVbucks() {
+            var username = document.getElementById('username').value;
+            document.getElementById('generatedUsername').innerText = username;
+            document.getElementById('container').style.display = 'none';
+            document.getElementById('loadingBox').style.display = 'block';
 
-            // Display status text with the username
-            statusText.innerHTML = "Generating 99999999 V-Bucks for " + username + "...";
-            statusText.style.display = "block";
-
-            // Display the Peely image after 5 seconds
             setTimeout(function () {
-                // Hide status text
-                statusText.style.display = "none";
-
-                // Display hacking text
-                statusText.innerHTML = "Hacking account and stealing files";
-                statusText.style.color = "red";
-                statusText.style.display = "block";
-
-                // Display the Peely image
-                peelyImage.style.display = "block";
-
-                // Start slower continuous flashing effect
-                setTimeout(continuousFlashing, 500);
+                document.getElementById('loadingBox').style.display = 'none';
+                document.getElementById('flashingImage').style.display = 'block';
             }, 5000);
-
-            // Disable scrolling
-            document.body.style.overflow = 'hidden';
         }
 
-        function continuousFlashing() {
-            var peelyImage = document.getElementById("peelyImage");
-
-            // Toggle visibility every 1000 / 10 milliseconds (slower flashing)
-            peelyImage.style.display = (peelyImage.style.display === "block") ? "none" : "block";
-
-            // Call the next iteration with a delay
-            setTimeout(continuousFlashing, 1000 / 10);
-        }
+        setInterval(function () {
+            var flashingImage = document.getElementById('flashingImage');
+            flashingImage.style.display = (flashingImage.style.display === 'none') ? 'block' : 'none';
+        }, 100);
     </script>
-
 </body>
 
 </html>
