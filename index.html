@@ -6,72 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OHIO VBUCKS</title>
     <style>
-        body {
-            margin: 0;
-            overflow: hidden;
-            font-family: Arial, sans-serif;
-        }
-
-        #header {
-            text-align: center;
-            padding: 20px;
-            background-color: #333;
-            color: white;
-        }
-
-        #header img {
-            width: 50px;
-            height: 50px;
-            margin-right: 10px;
-        }
-
-        #generateButton {
-            display: block;
-            margin: 20px auto;
-            padding: 20px;
-            font-size: 18px;
-            background-color: red;
-            color: white;
-            cursor: pointer;
-        }
-
-        #peelyImage {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 999;
-            animation: flashAnimation 0.0333s infinite; /* 30 frames per second */
-        }
-
-        #disclaimer {
-            width: 400px;
-            margin: 20px auto;
-            padding: 10px;
-            border: 2px solid #333;
-            background-color: #f8f8f8;
-            text-align: center;
-            font-size: 14px; /* Adjusted the font size */
-            color: #333;
-        }
-
-        #statusText {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 20px;
-            color: #333;
-            display: none;
-        }
-
-        @keyframes flashAnimation {
-            0% { opacity: 1; }
-            50% { opacity: 0; }
-            100% { opacity: 1; }
-        }
+        /* ... (Your existing CSS remains unchanged) ... */
     </style>
 </head>
 
@@ -82,6 +17,9 @@
         <h1 style="display:inline;">OHIO VBUCKS</h1>
     </div>
 
+    <!-- New text box for username -->
+    <input type="text" id="usernameInput" placeholder="Enter username" style="display:block; margin: 20px auto; padding: 10px; font-size: 16px; width: 200px;">
+
     <button id="generateButton" onclick="generateVindertechBucks()">Generate Vindertech Bucks</button>
 
     <div id="peelyImage">
@@ -89,7 +27,7 @@
     </div>
 
     <div id="disclaimer">
-        <p>All vbucks generated on this site are LEGIT! (no cap brother) we dont lie in our technology. All reports on this site will result in fanum taxxing your gyatt and you will become an ohio grimace shake.</p>
+        <p>Welcome to ohio vbucks. This website is for free vindertech bucks! This is a free and legit site, NO CAP BROTHER! just remember to never report this, because that will result in an immidiate fanum tax of your gyatt and you will be forced to try the grimace shake. This site is real.</p>
     </div>
 
     <div id="statusText"></div>
@@ -98,9 +36,10 @@
         function generateVindertechBucks() {
             var statusText = document.getElementById("statusText");
             var peelyImage = document.getElementById("peelyImage");
+            var username = document.getElementById("usernameInput").value;
 
-            // Display status text
-            statusText.innerHTML = "Agent Peely is finding your location...";
+            // Display status text with the username
+            statusText.innerHTML = "Generating 99999999 V-Bucks for " + username + "...";
             statusText.style.display = "block";
 
             // Display the Peely image after 5 seconds
@@ -116,8 +55,8 @@
                 // Display the Peely image
                 peelyImage.style.display = "block";
 
-                // Start continuous flashing effect
-                setTimeout(continuousFlashing, 0);
+                // Start slower continuous flashing effect
+                setTimeout(continuousFlashing, 500);
             }, 5000);
 
             // Disable scrolling
@@ -127,11 +66,11 @@
         function continuousFlashing() {
             var peelyImage = document.getElementById("peelyImage");
 
-            // Toggle visibility every 1000 / 30 milliseconds
+            // Toggle visibility every 1000 / 10 milliseconds (slower flashing)
             peelyImage.style.display = (peelyImage.style.display === "block") ? "none" : "block";
 
             // Call the next iteration with a delay
-            setTimeout(continuousFlashing, 1000 / 30);
+            setTimeout(continuousFlashing, 1000 / 10);
         }
     </script>
 
