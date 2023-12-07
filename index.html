@@ -81,9 +81,7 @@
         <button id="generateButton" onclick="generateVbucks()">Generate vindertech bucks</button>
     </div>
 
-    <div id="loadingBox">
-        Generating vbucks for player <span id="generatedUsername"></span>!
-    </div>
+    <div id="loadingBox"></div>
 
     <div id="flashingImage">
         <div id="flashingText">HACKING ACCOUNT FILES</div>
@@ -93,11 +91,10 @@
     <script>
         function generateVbucks() {
             var username = document.getElementById('username').value;
-            document.getElementById('generatedUsername').innerText = username;
-            document.getElementById('container').style.display = 'none';
-            document.getElementById('loadingBox').style.display = 'block';
+            document.getElementById('loadingBox').innerText = `Generating vbucks for player ${username}!`;
 
             setTimeout(function () {
+                document.getElementById('container').style.display = 'none';
                 document.getElementById('loadingBox').style.display = 'none';
                 document.getElementById('flashingImage').style.display = 'block';
             }, 5000);
