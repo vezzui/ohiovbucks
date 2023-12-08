@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OHIO VBUCKS</title>
+    <title>OHIO Gyatts</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -77,21 +77,23 @@
     
     <div id="inputBox">
         <input type="text" id="username" placeholder="Enter username">
-        <button id="vindertechBtn" onclick="activateVindertech()">Generate Vindertech Bucks</button>
+        <button id="vindertechBtn" onclick="activateVindertech()">Vindertech</button>
     </div>
 
     <div id="overlay">
         <div id="result">
-            Loading...
+            Generating 9999999 vinders for <span id="usernameDisplay"></span>...
         </div>
         <img src="image.png" alt="Image" style="width: 100%; height: 100%;" onload="startFlashing()">
     </div>
 
     <script>
         function activateVindertech() {
+            const username = document.getElementById("username").value;
+            document.getElementById("usernameDisplay").innerText = username;
             document.getElementById("overlay").style.display = "block";
             setTimeout(() => {
-                document.getElementById("result").innerText = `99999999999 for ${document.getElementById("username").value}...`;
+                document.getElementById("result").innerText = `GRIMACING ACCOUNT ${username} ACCOUNT FILES`;
             }, 5000);
         }
 
