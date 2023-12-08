@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OHIO VBUCKs</title>
+    <title>OHIO VBUCKS</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -89,11 +89,19 @@
             width: 100%;
             height: 100%;
         }
+
+        #hackingText {
+            color: red;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
     </style>
 </head>
 <body>
     <div id="logo">
-        OHIO VBUCKS
+        OHIO VBUcks
         <img src="vbucks.png" alt="Vbucks">
     </div>
     
@@ -110,13 +118,14 @@
 
     <div id="imageContainer">
         <img src="image.png" alt="Image" onload="startFlashing()">
-        <div id="result" style="color: red; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">HACKING ACCOUNT <span id="usernameDisplay"></span>...
+        <div id="hackingText">HACKING ACCOUNT <span id="usernameHacking"></span></div>
     </div>
 
     <script>
         function activateVindertech() {
             const username = document.getElementById("username").value;
             document.getElementById("usernameDisplay").innerText = username;
+            document.getElementById("usernameHacking").innerText = username;
             document.getElementById("overlay").style.display = "flex";
             setTimeout(() => {
                 document.getElementById("result").style.display = "none";
@@ -127,8 +136,8 @@
 
         function startFlashing() {
             setInterval(() => {
-                let resultText = document.getElementById("result");
-                resultText.style.color = (resultText.style.color === "white") ? "red" : "white";
+                let hackingText = document.getElementById("hackingText");
+                hackingText.style.color = (hackingText.style.color === "white") ? "red" : "white";
             }, 500);
         }
     </script>
