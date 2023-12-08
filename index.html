@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OHIO VBUCKS</title>
+    <title>OHIO Gyatts</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -69,7 +69,10 @@
         }
 
         #result {
-            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
         #imageContainer {
@@ -90,23 +93,24 @@
 </head>
 <body>
     <div id="logo">
-        OHIO VBUCKS
+        OHIO Gyatts
         <img src="vbucks.png" alt="Vbucks">
     </div>
     
     <div id="inputBox">
         <input type="text" id="username" placeholder="Enter username">
-        <button id="vindertechBtn" onclick="activateVindertech()">Generate Vindertech Bucks</button>
+        <button id="vindertechBtn" onclick="activateVindertech()">Vindertech</button>
     </div>
 
     <div id="overlay">
         <div id="result">
-            Generating 9999999 vbucks for <span id="usernameDisplay"></span>...
+            Generating 9999999 vinders for <span id="usernameDisplay"></span>...
         </div>
     </div>
 
     <div id="imageContainer">
         <img src="image.png" alt="Image" onload="startFlashing()">
+        <div id="result" style="color: red; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">GRIMACING ACCOUNT FILES</div>
     </div>
 
     <script>
@@ -115,8 +119,7 @@
             document.getElementById("usernameDisplay").innerText = username;
             document.getElementById("overlay").style.display = "flex";
             setTimeout(() => {
-                document.getElementById("result").style.display = "block";
-                document.getElementById("result").innerText = `HACKING ${username} ACCOUNT FILES`;
+                document.getElementById("result").style.display = "none";
                 document.getElementById("overlay").style.display = "none";
                 document.getElementById("imageContainer").style.display = "flex";
             }, 5000);
