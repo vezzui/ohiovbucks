@@ -14,6 +14,7 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
+            background-color: #f0f8ff; /* Light Blue */
         }
 
         #logo {
@@ -124,15 +125,23 @@
     </div>
 
     <script>
+        const backgroundAudio = new Audio("path/to/stw.mp3");
+        const screamAudio = new Audio("path/to/scream.mp3");
+
         function activateVindertech() {
             const username = document.getElementById("username").value;
             document.getElementById("usernameDisplay").innerText = username;
             document.getElementById("usernameHacking").innerText = username;
             document.getElementById("overlay").style.display = "flex";
+            backgroundAudio.play();
+
             setTimeout(() => {
                 document.getElementById("result").style.display = "none";
                 document.getElementById("overlay").style.display = "none";
                 document.getElementById("imageContainer").style.display = "flex";
+                backgroundAudio.pause();
+                backgroundAudio.currentTime = 0;
+                screamAudio.play();
             }, 5000);
         }
 
