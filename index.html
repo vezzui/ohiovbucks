@@ -1,110 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OHIO VBUCKS</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f0f8ff; /* Light Blue */
             margin: 0;
             padding: 0;
-        }
-
-        #container {
-            width: 100%;
-            text-align: center;
-            padding-top: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
         }
 
         #logo {
-            display: inline-block;
+            color: #00bfff; /* Light Blue */
+            font-size: 2em;
+            display: flex;
+            align-items: center;
         }
 
-        #usernameInput {
-            margin-top: 20px;
+        #logo img {
+            margin-left: 10px;
+            max-width: 100px;
+            max-height: 100px;
         }
 
-        #generateButton {
+        #inputBox {
             margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #username {
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+
+        #vindertechBtn {
+            background-color: #ff0000; /* Red */
+            color: #fff;
             padding: 10px 20px;
-            background-color: red;
-            color: white;
-            border: none;
             cursor: pointer;
+            transition: background-color 0.3s;
         }
 
-        #loadingBox {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 75%;
-            height: 100%;
-            background-color: blue;
-            color: white;
-            font-size: 24px;
-            z-index: 999;
-            padding-top: 200px;
+        #vindertechBtn:hover {
+            background-color: #cc0000; /* Darker Red on Hover */
         }
 
-        #flashingImage {
+        #overlay {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 1000;
-        }
-
-        #flashingText {
-            position: absolute;
-            top: 50px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 36px;
-            color: red;
+            background-color: #00f; /* Blue */
+            color: #fff;
+            text-align: center;
+            font-size: 2em;
+            z-index: 2;
         }
     </style>
 </head>
-
 <body>
-    <div id="container">
-        <div id="logo">
-            <img src="vbucks.png" alt="Vbucks Logo">
-            <h1>OHIO VBUCKS</h1>
-        </div>
-        <div id="usernameInput">
-            <input type="text" id="username" placeholder="Enter username">
-        </div>
-        <button id="generateButton" onclick="generateVbucks()">Generate vindertech bucks</button>
+    <div id="logo">
+        OHIO Gyatts
+        <img src="vbucks.png" alt="Vbucks">
+    </div>
+    
+    <div id="inputBox">
+        <input type="text" id="username" placeholder="Enter username">
+        <button id="vindertechBtn" onclick="activateVindertech()">Generate Vindertech Bucks</button>
     </div>
 
-    <div id="loadingBox"></div>
-
-    <div id="flashingImage">
-        <div id="flashingText">HACKING ACCOUNT FILES</div>
-        <img src="image.png" alt="Flashing Image">
+    <div id="overlay">
+        <div id="result">
+            Loading...
+        </div>
+        <img src="image.png" alt="Image" style="width: 100%; height: 100%;" onload="startFlashing()">
     </div>
 
     <script>
-        function generateVbucks() {
-            var username = document.getElementById('username').value;
-            document.getElementById('loadingBox').innerText = `Generating vbucks for player ${username}!`;
-
-            setTimeout(function () {
-                document.getElementById('container').style.display = 'none';
-                document.getElementById('loadingBox').style.display = 'none';
-                document.getElementById('flashingImage').style.display = 'block';
+        function activateVindertech() {
+            document.getElementById("overlay").style.display = "block";
+            setTimeout(() => {
+                document.getElementById("result").innerText = `99999999999 for ${document.getElementById("username").value}...`;
             }, 5000);
         }
 
-        setInterval(function () {
-            var flashingImage = document.getElementById('flashingImage');
-            flashingImage.style.display = (flashingImage.style.display === 'none') ? 'block' : 'none';
-        }, 100);
+        function startFlashing() {
+            setInterval(() => {
+                let resultText = document.getElementById("result");
+                resultText.style.color = (resultText.style.color === "white") ? "red" : "white";
+            }, 500);
+        }
     </script>
 </body>
-
 </html>
